@@ -5,17 +5,10 @@ ARG cloneBRANCH=master
 ARG wxWidgetsURL=https://github.com/wxWidgets/wxWidgets.git
 ARG wxWidgetsBranch=WX_3_0_BRANCH
 
-RUN apt update && apt install -y git
-RUN apt install -y make gcc g++
-RUN apt install -y pkg-config 
-RUN apt install -y gtk+2.0
-RUN apt install -y libcppunit-dev
-RUN apt install -y yasm
-RUN apt install -y libfuse-dev
-RUN apt install -y makeself
+RUN apt update && apt install -y git gcc g++ pkg-config gtk+2.0 libcppunit-dev yasm libfuse-dev makeself libwxgtk3.0-dev
 
 RUN git clone -b ${cloneBRANCH} ${cloneURL} vera
-RUN git clone -b ${wxWidgetsBranch} ${wxWidgetsURL} wxWidgets-3.0.4
+RUN git clone -b ${wxWidgetsBranch} ${wxWidgetsURL} wxWidgets-3.0.5
 
 VOLUME /builded
 
